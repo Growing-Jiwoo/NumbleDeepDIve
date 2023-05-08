@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Container, Form, Input, Button } from "./styled";
-import { useCookies } from "react-cookie";
 import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -14,7 +13,6 @@ interface SingUp {
 function SignUp(): JSX.Element {
   const axiosInstance = useAxiosWithAuth();
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies(["jwt"]);
   const {
     register,
     handleSubmit,
@@ -42,9 +40,8 @@ function SignUp(): JSX.Element {
     try {
       console.log(values);
       const response = await axiosInstance.post("auth/signup", values);
-      setCookie("jwt", response.data.token);
       console.log(response);
-      // navigate("/home");
+      navigate("/");
     } catch (error) {
       throw new Error("회원가입 실패");
     }
