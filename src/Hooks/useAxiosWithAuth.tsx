@@ -9,7 +9,7 @@ const useAxiosWithAuth = (): AxiosInstance => {
   const axiosInstance = axios.create({
     baseURL: " http://52.79.226.246/",
     headers: {
-      Authorization: `Bearer ${cookies.jwt}`,
+      Authorization: `${cookies.jwt}`,
     },
   });
 
@@ -18,9 +18,7 @@ const useAxiosWithAuth = (): AxiosInstance => {
       const token = cookies.jwt;
       if (token) {
         config.headers = config.headers || {};
-        (
-          config.headers as AxiosRequestHeaders
-        ).Authorization = `Bearer ${token}`;
+        (config.headers as AxiosRequestHeaders).Authorization = `${token}`;
       }
       return config;
     },
@@ -37,7 +35,7 @@ const useAxiosWithAuth = (): AxiosInstance => {
         error.response.statusText = "Unauthorized";
         error.response.status = 401;
         removeCookie("jwt");
-        navigate("/");
+        navigate("/login");
       }
       return Promise.reject(error);
     }
