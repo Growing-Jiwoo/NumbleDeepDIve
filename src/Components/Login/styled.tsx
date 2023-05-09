@@ -1,11 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const blinkAnimation = keyframes`
-  50% {
-    background-color: gray;
-    color: white;
-  }
-`;
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -46,20 +39,24 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   width: 30%;
-  padding: 1rem 2rem;
-  background-color: gray;
-  color: white;
   border: none;
   cursor: pointer;
   margin: 3% 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: 0px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(25, 118, 210, 0.5);
+  color: rgb(25, 118, 210);
 
-  &:hover {
-    animation: ${blinkAnimation} 0.5s linear infinite;
+  &.login {
+    margin-top: 5%;
   }
-`;
-
-export const LogoImage = styled.img`
-  width: 424px;
-  position: flex;
-  margin: 0px 0px 40px 0px;
 `;

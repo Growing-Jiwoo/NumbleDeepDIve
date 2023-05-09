@@ -18,10 +18,12 @@ function SignUp(): JSX.Element {
     handleSubmit,
     formState: { errors },
     watch,
+    setError,
   } = useForm<SingUp>({
     criteriaMode: "all",
     mode: "onChange",
   });
+
   const [values, setValues] = useState<SingUp>({
     userId: "",
     password: "",
@@ -41,9 +43,17 @@ function SignUp(): JSX.Element {
       console.log(values);
       const response = await axiosInstance.post("auth/signup", values);
       console.log(response);
+      alert("회원가입이 완료되었습니다.");
       navigate("/");
-    } catch (error) {
-      throw new Error("회원가입 실패");
+    } catch (error: any) {
+      if (error.response?.status === 400) {
+        setError("userId", {
+          type: "manual",
+          message: "중복되는 ID가 존재합니다.",
+        });
+      } else {
+        throw new Error("회원가입 실패");
+      }
     }
   };
 
