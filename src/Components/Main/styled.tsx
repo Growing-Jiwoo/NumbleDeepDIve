@@ -8,14 +8,24 @@ export const ProfileBox = styled.div`
 `;
 
 export const ProfileImg = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  color: rgb(255, 255, 255);
-  background-color: rgb(189, 189, 189);
+  font-size: 1rem;
+  border-radius: 0px;
+  overflow: hidden;
   width: 30vw;
   height: 30vw;
+
+  img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+    color: transparent;
+    text-indent: 10000px;
+  }
 `;
 
 export const Container = styled.div`
