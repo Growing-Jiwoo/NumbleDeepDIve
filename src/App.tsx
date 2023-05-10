@@ -1,8 +1,9 @@
 import { Routes, Route, Outlet } from "react-router-dom";
-import Header from "./Components/Commons/header";
+import Header from "./Components/Commons/Header";
 import LoginUi from "./Components/Login/LoginUi";
 import SignUp from "./Components/Login/SignUp";
 import Main from "./Components/Main/Main";
+import NavBar from "./Components/Commons/NavBar";
 
 function App(): JSX.Element {
   return (
@@ -31,6 +32,7 @@ const CommonLayout = () => {
     <>
       <Header />
       <Outlet />
+      <NavBar />
     </>
   );
 };
