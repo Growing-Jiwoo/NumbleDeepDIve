@@ -16,17 +16,43 @@ export const Header = styled.header`
 
 export const HeaderContainer = styled.div`
   display: flex;
+`;
 
-  img {
-    width: 50px;
-    height: 50px;
-  }
+export const HeaderImage = styled.img<{ hideOnMain?: boolean }>`
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  visibility: ${(props) => (props.hideOnMain ? "hidden" : "visible")};
 `;
 
 export const HeaderText = styled.span`
   font-size: 40px;
   font-weight: bolder;
-  background-image: linear-gradient(to right, red, rgb(50, 71, 229));
   background-clip: text;
-  color: transparent;
+`;
+
+export const Nav = styled.nav`
+  background-color: white;
+  height: 60px;
+  width: 100%;
+  max-width: 686px;
+  padding: 16px 24px 0px 0px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 3;
+  border-top: 1px solid rgb(230, 230, 230);
+
+  ul {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  img {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
 `;
