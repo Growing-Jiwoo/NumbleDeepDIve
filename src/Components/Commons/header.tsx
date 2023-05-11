@@ -14,6 +14,7 @@ function HeaderUi(): JSX.Element {
         src={`${process.env.PUBLIC_URL}/img/backbtn.PNG`}
         alt="Back Button"
         onClick={handleImageClick}
+        hideOnMain={window.location.pathname === "/Main"}
       />
       <HeaderContainer>
         <HeaderText>안녕하세요</HeaderText>
