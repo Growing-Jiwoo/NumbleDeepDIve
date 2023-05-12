@@ -5,6 +5,7 @@ import SignUp from "./Components/Login/SignUp";
 import Main from "./Components/Main/Main";
 import NavBar from "./Components/Commons/NavBar";
 import ExchangedLikeList from "./Components/LikeList/ExchangedLikeList";
+import Myinfo from "./Components/Myinfo/UserProfile";
 
 function App(): JSX.Element {
   return (
@@ -17,16 +18,15 @@ function App(): JSX.Element {
         overflow: "hidden",
       }}
     >
-      <div>
-        <Routes>
-          <Route path="/" element={<LoginUi />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route element={<CommonLayout />}>
-            <Route path="/Main" element={<Main />} />
-            <Route path="/Like" element={<ExchangedLikeList />} />
-          </Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<LoginUi />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route element={<CommonLayout />}>
+          <Route path="/Main" element={<Main />} />
+          <Route path="/Like" element={<ExchangedLikeList />} />
+          <Route path="/Myinfo" element={<Myinfo />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
