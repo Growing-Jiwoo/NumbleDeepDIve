@@ -7,32 +7,11 @@ export const ProfileBox = styled.div`
   align-items: center;
 `;
 
-export const ProfileImg = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  border-radius: 0px;
-  overflow: hidden;
-  width: 30vw;
-  height: 30vw;
-
-  img {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    object-fit: cover;
-    color: transparent;
-    text-indent: 10000px;
-  }
-`;
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 82vh;
   justify-content: center;
 `;
 
@@ -74,5 +53,25 @@ export const Button = styled.button`
   &#hateBtn {
     border: 1px solid cornflowerblue;
     color: cornflowerblue;
+  }
+`;
+
+export const CenteredContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-bottom: 200px;
+`;
+
+export const MessageContainer = styled.div`
+  text-align: center;
+
+  h6 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2;
+    text-align: center;
   }
 `;
