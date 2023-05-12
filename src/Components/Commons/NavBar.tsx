@@ -30,7 +30,7 @@ function NavBar(): JSX.Element {
             src={`${process.env.PUBLIC_URL}/img/usericon.PNG`}
             alt="myinfoBtn"
             onClick={() => {
-              navigate("/Main");
+              navigate("/Myinfo");
             }}
           />
         </li>
