@@ -1,30 +1,22 @@
-import { useState } from "react";
 import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
 import type { UserListArray } from "../../Interface/interface";
+import UserProfileImg from "../Commons/UserProfileImg";
 import { Button, ButtonContainer, UserName } from "./styled";
-import UserProfileImg from "./UserProfileImg";
+import { ProfileImg } from "../Commons/styled";
 
-export default function UserProfile({ userList }: UserListArray) {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+export default function UserProfile({ userList, onSearch }: UserListArray) {
   const axiosInstance = useAxiosWithAuth();
 
   async function handleButtonClick(action: string) {
     try {
-      const targetUser = userList[currentIndex];
+      const targetUser = userList[0];
       const response = await axiosInstance.patch(`/affinity/${action}`, {
         targetUserId: targetUser.userId,
       });
       console.log(
-        `${targetUser.userId} 유저에게 ${action} 버튼 클릭 결과 :${response.data}`
+        `${targetUser.userId} 유저에게 ${action} 버튼 클릭 결과: ${response.data}`
       );
-
-      setCurrentIndex((prevIndex) => {
-        if (prevIndex === userList.length - 1) {
-          return 0;
-        } else {
-          return prevIndex + 1;
-        }
-      });
+      onSearch();
     } catch (error) {
       console.log(error);
     }
@@ -32,9 +24,10 @@ export default function UserProfile({ userList }: UserListArray) {
 
   return (
     <>
-      <UserProfileImg profileImgUrl={userList[currentIndex].profileImgUrl} />
-
-      <UserName>{userList[currentIndex].nickname}</UserName>
+      <ProfileImg className="userProfile">
+        <UserProfileImg profileImgUrl={userList[0].profileImgUrl} />
+      </ProfileImg>
+      <UserName>{userList[0].nickname}</UserName>
       <ButtonContainer>
         <Button id="likeBtn" onClick={() => handleButtonClick("like")}>
           좋아요
