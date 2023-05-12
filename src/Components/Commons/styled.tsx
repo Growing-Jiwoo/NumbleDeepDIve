@@ -56,3 +56,37 @@ export const Nav = styled.nav`
     height: 30px;
   }
 `;
+
+export const ProfileImg = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.userProfile {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  &.sendUserProfile {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &.sendUserProfile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+    color: transparent;
+    text-indent: 10000px;
+  }
+`;
