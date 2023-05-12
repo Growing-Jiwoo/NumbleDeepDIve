@@ -6,4 +6,5 @@ export interface UserData {
 
 export interface UserListArray {
   userList: UserData[];
+  onSearch: () => void;
 }
