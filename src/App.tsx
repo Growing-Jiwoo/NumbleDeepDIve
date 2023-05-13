@@ -5,7 +5,7 @@ import SignUp from "./Components/Login/SignUp";
 import Main from "./Components/Main/Main";
 import NavBar from "./Components/Commons/NavBar";
 import ExchangedLikeList from "./Components/LikeList/ExchangedLikeList";
-import Myinfo from "./Components/Myinfo/UserProfile";
+import Myinfo from "./Components/Myinfo/Myinfo";
 
 function App(): JSX.Element {
   return (
