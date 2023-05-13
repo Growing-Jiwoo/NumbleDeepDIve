@@ -8,3 +8,8 @@ export interface UserListArray {
   userList: UserData[];
   onSearch: () => void;
 }
+
+export interface MyInfoValue {
+  profileImgUrl?: string;
+  nickname?: string;
+}
