@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ProfileImg } from "./styled";
 
 interface UserProfileImgProps {
-  profileImgUrl: string;
+  profileImgUrl?: string;
 }
 
 export default function UserProfileImg({ profileImgUrl }: UserProfileImgProps) {
