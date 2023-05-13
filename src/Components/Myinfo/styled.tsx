@@ -80,7 +80,7 @@ export const PopupContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-
+  flex-direction: column;
   #closebtn {
     width: 25px;
     height: 25px;
@@ -89,4 +89,22 @@ export const PopupContainer = styled.div`
     right: -18px;
     z-index: 2;
   }
+`;
+
+export const MyInfoSaveBtn = styled.button`
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  font-weight: 500;
+  min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(25, 118, 210, 0.5);
+  color: rgb(25, 118, 210);
+  width: 100%;
 `;
