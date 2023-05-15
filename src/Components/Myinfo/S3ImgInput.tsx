@@ -19,10 +19,10 @@ const S3ImgInput = forwardRef<S3ImgInputRef, S3ImgInputProps>(
         const file = inputRef.current?.files?.[0];
 
         if (file) {
-          const REGION = "ap-northeast-2";
-          const ACCESS_KEY_ID = "AKIAQSF5NJKCAMQJP7H3";
-          const SECRET_ACCESS_KEY = "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";
-          const BUCKET_NAME = "numble-kimjiwoo";
+          const REGION = "";
+          const ACCESS_KEY_ID = "";
+          const SECRET_ACCESS_KEY = "";
+          const BUCKET_NAME = "";
           const KEY_PREFIX = "image/";
           const fileName = `${KEY_PREFIX}${file?.name}`;
 
