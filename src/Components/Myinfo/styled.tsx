@@ -89,14 +89,28 @@ export const PopupContainer = styled.div`
     right: -18px;
     z-index: 2;
   }
+  label {
+    color: darkgray;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #errorMsg {
+    font-size: 12px;
+    color: crimson;
+  }
 `;
 
-export const MyInfoSaveBtn = styled.button`
+export const MyInfoSaveBtn = styled.button<{ isValid: boolean }>`
   align-items: center;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
-  background-color: transparent;
   outline: 0px;
   margin: 0px;
   cursor: pointer;
@@ -104,7 +118,16 @@ export const MyInfoSaveBtn = styled.button`
   min-width: 64px;
   padding: 5px 15px;
   border-radius: 4px;
-  border: 1px solid rgba(25, 118, 210, 0.5);
-  color: rgb(25, 118, 210);
+  border: 1px solid ${(props) => (props.isValid ? "dodgerblue" : "crimson")};
+  color: ${(props) => (props.isValid ? "dodgerblue" : "crimson")};
+  background-color: ${(props) => (props.isValid ? "transparent" : "lightgray")};
+
   width: 100%;
+`;
+
+export const NickNameInput = styled.input`
+  border: 1px solid gray;
+  width: 100%;
+  padding: 15px 13px;
+  margin-bottom: 10px;
 `;
