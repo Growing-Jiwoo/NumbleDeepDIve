@@ -12,7 +12,7 @@ function NavBar(): JSX.Element {
             src={`${process.env.PUBLIC_URL}/img/likeicon.png`}
             alt="likeBtn"
             onClick={() => {
-              navigate("/Like");
+              navigate("/like/list");
             }}
           />
         </li>
@@ -21,7 +21,7 @@ function NavBar(): JSX.Element {
             src={`${process.env.PUBLIC_URL}/img/swipeicon.png`}
             alt="swipeBtn"
             onClick={() => {
-              navigate("/Main");
+              navigate("/main");
             }}
           />
         </li>
@@ -30,7 +30,7 @@ function NavBar(): JSX.Element {
             src={`${process.env.PUBLIC_URL}/img/usericon.PNG`}
             alt="myinfoBtn"
             onClick={() => {
-              navigate("/Myinfo");
+              navigate("/myinfo");
             }}
           />
         </li>

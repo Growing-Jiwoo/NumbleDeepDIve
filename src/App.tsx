@@ -20,11 +20,11 @@ function App(): JSX.Element {
     >
       <Routes>
         <Route path="/" element={<LoginUi />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/signUp" element={<SignUp />} />
         <Route element={<CommonLayout />}>
-          <Route path="/Main" element={<Main />} />
-          <Route path="/Like" element={<ExchangedLikeList />} />
-          <Route path="/Myinfo" element={<Myinfo />} />
+          <Route path="/main" element={<Main />} />
+          <Route path="/like/list" element={<ExchangedLikeList />} />
+          <Route path="/myinfo" element={<Myinfo />} />
         </Route>
       </Routes>
     </div>
