@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
 import {
   LikeTabMenu,
@@ -11,21 +12,26 @@ import SendUserList from "./SendUserList";
 import { UserData } from "../../Interface/interface";
 
 function ExchangedLikeList(): JSX.Element {
+  const location = useLocation();
+  const navigate = useNavigate();
   const axiosInstance = useAxiosWithAuth();
-  const [likeSendUserList, setLikeSendUserList] = useState<UserData[]>();
-  const [receiveUserList, setReceiveUserList] = useState<UserData[]>();
+
+  const [likeSendUserList, setLikeSendUserList] = useState<UserData[]>([]);
+  const [receiveUserList, setReceiveUserList] = useState<UserData[]>([]);
   const [isSendClicked, setIsSendClicked] = useState(false);
   const [isReceiveClicked, setIsReceiveClicked] = useState(false);
-  const [activeTab, setActiveTab] = useState<"send" | "receive">("send");
+  const [activeTab, setActiveTab] = useState<"send" | "receive">();
 
   const handleSendButtonClick = () => {
     setIsSendClicked(true);
     setIsReceiveClicked(false);
+    navigate("/like/list?type=send");
   };
 
   const handleReceiveButtonClick = () => {
     setIsSendClicked(false);
     setIsReceiveClicked(true);
+    navigate("/like/list?type=receive");
   };
 
   useEffect(() => {
@@ -42,11 +48,25 @@ function ExchangedLikeList(): JSX.Element {
     fetchData();
   }, []);
 
-  console.log(receiveUserList);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const typeParam = searchParams.get("type");
+    if (typeParam === "send" || !typeParam) {
+      setActiveTab("send");
+      setIsSendClicked(true);
+      setIsReceiveClicked(false);
+    } else if (typeParam === "receive") {
+      setActiveTab("receive");
+      setIsSendClicked(false);
+      setIsReceiveClicked(true);
+    }
+  }, [location.search]);
+
   return (
     <Container>
       <LikeTabMenu>
         <SendBtn
+          id="sendBtn"
           active={activeTab === "send"}
           onClick={() => {
             setActiveTab("send");
@@ -73,7 +93,13 @@ function ExchangedLikeList(): JSX.Element {
             )}
           </div>
         ) : null}
-        {isReceiveClicked ? <div>구현 진행 중</div> : null}
+        {isReceiveClicked ? (
+          <div>
+            {receiveUserList && receiveUserList.length > 0 && (
+              <SendUserList userList={receiveUserList} />
+            )}
+          </div>
+        ) : null}
       </LikeListContainer>
     </Container>
   );
