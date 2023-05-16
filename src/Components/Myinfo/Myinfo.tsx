@@ -40,8 +40,6 @@ export default function Myinfo() {
     }
   }
 
-  console.log(values);
-
   const onSearch = useCallback(() => {
     fetchData();
   }, []);
@@ -49,6 +47,7 @@ export default function Myinfo() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <Container>
       <MyInfoProfile>
@@ -66,8 +65,20 @@ export default function Myinfo() {
         </MyinfoEdit>
       </MyInfoProfile>
       <ButtonCotainer>
-        <ButtonDiv>내가 좋아한 사람</ButtonDiv>
-        <ButtonDiv>나를 좋아한 사람</ButtonDiv>
+        <ButtonDiv
+          onClick={() => {
+            navigate("/like/list?type=send");
+          }}
+        >
+          내가 좋아한 사람
+        </ButtonDiv>
+        <ButtonDiv
+          onClick={() => {
+            navigate("/like/list?type=receive");
+          }}
+        >
+          나를 좋아한 사람
+        </ButtonDiv>
         <ButtonDiv>로그아웃</ButtonDiv>
       </ButtonCotainer>
 
