@@ -14,6 +14,7 @@ import type { MyInfoValue, UserData } from "../../Interface/interface";
 import UserProfileImg from "../Commons/UserProfileImg";
 import EditPopup from "./EditPopup";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 export default function Myinfo() {
   const navigate = useNavigate();
@@ -22,9 +23,8 @@ export default function Myinfo() {
     nickname: "",
     profileImgUrl: "",
   });
-
-  const [isEditOpen, setIsEditOpen] = useState(false);
-
+  const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
+  const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
   const openEditModal = () => setIsEditOpen(true);
   const closeEditModal = () => setIsEditOpen(false);
 
@@ -38,6 +38,11 @@ export default function Myinfo() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async function handleLogout() {
+    removeCookie("jwt");
+    navigate("/");
   }
 
   const onSearch = useCallback(() => {
@@ -79,7 +84,13 @@ export default function Myinfo() {
         >
           나를 좋아한 사람
         </ButtonDiv>
-        <ButtonDiv>로그아웃</ButtonDiv>
+        <ButtonDiv
+          onClick={() => {
+            handleLogout();
+          }}
+        >
+          로그아웃
+        </ButtonDiv>
       </ButtonCotainer>
 
       {isEditOpen && (
