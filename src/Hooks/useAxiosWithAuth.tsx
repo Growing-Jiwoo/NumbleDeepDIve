@@ -31,7 +31,7 @@ const useAxiosWithAuth = (): AxiosInstance => {
     (response) => response,
     (error) => {
       const statusCode = error.response?.status;
-      if (statusCode === 419) {
+      if (statusCode === 419 || statusCode === 401) {
         error.response.statusText = "Unauthorized";
         error.response.status = 419;
         removeCookie("jwt");
