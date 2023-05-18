@@ -10,6 +10,7 @@ import {
 } from "./styled";
 import SendUserList from "./SendUserList";
 import { UserData } from "../../Interface/interface";
+import ReceiveUserList from "./ReceiveUserList";
 
 function ExchangedLikeList(): JSX.Element {
   const location = useLocation();
@@ -96,7 +97,7 @@ function ExchangedLikeList(): JSX.Element {
         {isReceiveClicked ? (
           <div>
             {receiveUserList && receiveUserList.length > 0 && (
-              <SendUserList userList={receiveUserList} />
+              <ReceiveUserList userList={receiveUserList} />
             )}
           </div>
         ) : null}
