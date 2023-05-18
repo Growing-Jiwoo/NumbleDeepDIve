@@ -6,6 +6,7 @@ import Main from "./Components/Main/Main";
 import NavBar from "./Components/Commons/NavBar";
 import ExchangedLikeList from "./Components/LikeList/ExchangedLikeList";
 import Myinfo from "./Components/Myinfo/Myinfo";
+import Chat from "./Components/Chat/Chat";
 
 function App(): JSX.Element {
   return (
@@ -25,6 +26,7 @@ function App(): JSX.Element {
           <Route path="/main" element={<Main />} />
           <Route path="/like/list" element={<ExchangedLikeList />} />
           <Route path="/myinfo" element={<Myinfo />} />
+          <Route path="/chat/:targetUserId" element={<Chat />} />
         </Route>
       </Routes>
     </div>
