@@ -1,4 +1,4 @@
-## [NUMBLE 딥다이브] 클론코딩의 정석_TypeScript + React 로 소개팅 앱 만들어보기
+## [NUMBLE 딥다이브] TypeScript + React 로 소개팅 앱 만들어보기
 <div align="center">
   <a href="https://www.numble.it/deepdive/50">
     <img src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/6c8ccf71-09b1-47b9-8600-bbde8bb98da8" alt="Image" />
