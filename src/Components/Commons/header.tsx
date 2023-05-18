@@ -17,7 +17,7 @@ function HeaderUi(): JSX.Element {
         hideOnMain={window.location.pathname === "/Main"}
       />
       <HeaderContainer>
-        <HeaderText>안녕하세요</HeaderText>
+        <HeaderText>NUMMANDA</HeaderText>
       </HeaderContainer>
     </Header>
   );
