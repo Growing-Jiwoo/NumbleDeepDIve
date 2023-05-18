@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+## [NUMBLE 딥다이브] 클론코딩의 정석_TypeScript + React 로 소개팅 앱 만들어보기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###### https://www.numble.it/deepdive/50 해당 딥다이브를 진행한 결과물입니다.
 
-## Available Scripts
 
-In the project directory, you can run:
+### [사용 기술]
 
-### `npm start`
+React.js, TypeScript, HTML, CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### [와이어프레임]
+<img width="2351" alt="와이어프레임" src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/d8d2014d-872f-44e4-af71-94fd7e4bb59c">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### [구현된 기능]
+- 회원가입 및 로그인
+- 좋아요 / 싫어요 구현
+- 내가 좋아요를 한 사람 / 나에게 좋아요를 한 사람 구현
+- 회원 정보 변경 구현 (이미지 업로드 -> aws s3 사용)
+- 나에게 좋아요를 한 사람과 채팅 기능 구현 (express.js 사용)
 
-### `npm test`
+### [git 컨벤션]
+- feat: 새 기능 추가
+- fix: 발생한 에러 수정
+- style: 코드 포맷팅, css 코드 추가 및 수정
+- refactor: 성능 개선을 위한 코드 수정
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [Commit 메시지 컨벤션]
+##### 형태 : git commit -m '[git 컨벤션]: [작업내용] (#[깃이슈/pr 번호])'
+##### 예시 : git commit -m 'feat: 새로운 기능 추가(#1)'
 
-### `npm run build`
+### [코딩 컨벤션]
+- 변수/ 함수: camelCalse
+- 컴포넌트/ 타입(인터페이스 등): PascalCase
+- 상수: UPPER_SNAKE_CASE
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### [사용 라이브러리]
+`aws-sdk@2.1377.0`   
+`axios@1.4.0`   
+`react-async@10.0.1`   
+`react-cookie@4.1.1`   
+`react-dom@18.2.0`   
+`react-hook-form@7.43.9`   
+`react-modal@3.16.1`      
+`react-router-dom@6.11.1`   
+`socket.io-client@4.6.1`
+`styled-components@5.3.10`   
+`typescript@4.9.5`   
+`cors@2.8.5`   
+`express@4.18.2`   
+`socket.io@4.6.1`   
