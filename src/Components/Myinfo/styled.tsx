@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -131,3 +131,22 @@ export const NickNameInput = styled.input`
   padding: 15px 13px;
   margin-bottom: 10px;
 `;
+export const ModalStyles: Record<string, CSSProperties> = {
+  overlay: {
+    backgroundColor: "rgba(0,0,0,0.5)",
+    zIndex: 999,
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "white",
+    padding: "30px",
+    borderRadius: "15px",
+    width: "50vw",
+    height: "35vh",
+  },
+};
