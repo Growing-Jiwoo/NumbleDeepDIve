@@ -6,16 +6,11 @@ import { ProfileImg } from "../Commons/styled";
 
 export default function UserProfile({ userList, onSearch }: UserListArray) {
   const axiosInstance = useAxiosWithAuth();
+  const { userId: targetUserId, nickname, profileImgUrl } = userList[0];
 
   async function handleButtonClick(action: string) {
     try {
-      const targetUser = userList[0];
-      const response = await axiosInstance.patch(`/affinity/${action}`, {
-        targetUserId: targetUser.userId,
-      });
-      console.log(
-        `${targetUser.userId} 유저에게 ${action} 버튼 클릭 결과: ${response.data}`
-      );
+      await axiosInstance.patch(`/affinity/${action}`, { targetUserId });
       onSearch();
     } catch (error) {
       console.log(error);
@@ -25,9 +20,9 @@ export default function UserProfile({ userList, onSearch }: UserListArray) {
   return (
     <>
       <ProfileImg className="userProfile">
-        <UserProfileImg profileImgUrl={userList[0].profileImgUrl} />
+        <UserProfileImg profileImgUrl={profileImgUrl} />
       </ProfileImg>
-      <UserName>{userList[0].nickname}</UserName>
+      <UserName>{nickname}</UserName>
       <ButtonContainer>
         <Button id="likeBtn" onClick={() => handleButtonClick("like")}>
           좋아요
