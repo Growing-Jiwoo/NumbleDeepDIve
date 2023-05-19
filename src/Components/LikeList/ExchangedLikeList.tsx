@@ -9,7 +9,7 @@ import {
   LikeListContainer,
 } from "./styled";
 import SendUserList from "./SendUserList";
-import { UserData } from "../../Interface/interface";
+import type { UserData } from "../../Interface/interface";
 import ReceiveUserList from "./ReceiveUserList";
 
 function ExchangedLikeList(): JSX.Element {
@@ -19,48 +19,30 @@ function ExchangedLikeList(): JSX.Element {
 
   const [likeSendUserList, setLikeSendUserList] = useState<UserData[]>([]);
   const [receiveUserList, setReceiveUserList] = useState<UserData[]>([]);
-  const [isSendClicked, setIsSendClicked] = useState(false);
-  const [isReceiveClicked, setIsReceiveClicked] = useState(false);
-  const [activeTab, setActiveTab] = useState<"send" | "receive">();
+  const [activeTab, setActiveTab] = useState<"send" | "receive">("send");
 
-  const handleSendButtonClick = () => {
-    setIsSendClicked(true);
-    setIsReceiveClicked(false);
-    navigate("/like/list?type=send");
+  const fetchData = async () => {
+    try {
+      const response = await axiosInstance.get("/affinity/list");
+      setLikeSendUserList(response.data.send);
+      setReceiveUserList(response.data.receieve);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleReceiveButtonClick = () => {
-    setIsSendClicked(false);
-    setIsReceiveClicked(true);
-    navigate("/like/list?type=receive");
+  const handleTabClick = (tab: "send" | "receive") => {
+    setActiveTab(tab);
+    navigate(`/like/list?type=${tab}`);
   };
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axiosInstance.get("/affinity/list");
-        console.log(response);
-        setLikeSendUserList(response.data.send);
-        setReceiveUserList(response.data.receieve);
-      } catch (error) {
-        console.log(error);
-      }
-    }
     fetchData();
   }, []);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const typeParam = searchParams.get("type");
-    if (typeParam === "send" || !typeParam) {
-      setActiveTab("send");
-      setIsSendClicked(true);
-      setIsReceiveClicked(false);
-    } else if (typeParam === "receive") {
-      setActiveTab("receive");
-      setIsSendClicked(false);
-      setIsReceiveClicked(true);
-    }
+    setActiveTab(searchParams.get("type") === "receive" ? "receive" : "send");
   }, [location.search]);
 
   return (
@@ -69,38 +51,33 @@ function ExchangedLikeList(): JSX.Element {
         <SendBtn
           id="sendBtn"
           active={activeTab === "send"}
-          onClick={() => {
-            setActiveTab("send");
-            handleSendButtonClick();
-          }}
+          onClick={() => handleTabClick("send")}
         >
           Send
         </SendBtn>
         <ReceiveBtn
           active={activeTab === "receive"}
-          onClick={() => {
-            setActiveTab("receive");
-            handleReceiveButtonClick();
-          }}
+          onClick={() => handleTabClick("receive")}
         >
           Receive
         </ReceiveBtn>
       </LikeTabMenu>
       <LikeListContainer>
-        {isSendClicked || (!isSendClicked && !isReceiveClicked) ? (
+        {(activeTab === "send" ||
+          (!likeSendUserList.length && !receiveUserList.length)) && (
           <div>
-            {likeSendUserList && likeSendUserList.length > 0 && (
+            {likeSendUserList.length > 0 && (
               <SendUserList userList={likeSendUserList} />
             )}
           </div>
-        ) : null}
-        {isReceiveClicked ? (
+        )}
+        {activeTab === "receive" && (
           <div>
-            {receiveUserList && receiveUserList.length > 0 && (
+            {receiveUserList.length > 0 && (
               <ReceiveUserList userList={receiveUserList} />
             )}
           </div>
-        ) : null}
+        )}
       </LikeListContainer>
     </Container>
   );
