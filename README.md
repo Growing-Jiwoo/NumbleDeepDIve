@@ -1,4 +1,4 @@
-## [🏆️ TOP3 ✨] [NUMBLE 딥다이브] TypeScript + React로 소개팅 앱 만들기
+## [🏆️ TOP3 ✨] [[NUMBLE 딥다이브]](https://www.numble.it/deepdive/50) TypeScript + React로 소개팅 앱 만들기
 <div align="center">
     <a>
     <img src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/3f19dab5-2358-4fdd-a22d-74279a174a35" alt="Image" />
