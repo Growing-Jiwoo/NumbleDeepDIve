@@ -1,10 +1,14 @@
-## [NUMBLE 딥다이브] TypeScript + React 로 소개팅 앱 만들어보기
+## [🏆️ TOP3 ✨] [NUMBLE 딥다이브] TypeScript + React로 소개팅 앱 만들기 / [딥다이브 링크](https://www.numble.it/deepdive/50)
 <div align="center">
-  <a href="https://www.numble.it/deepdive/50">
-    <img src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/6c8ccf71-09b1-47b9-8600-bbde8bb98da8" alt="Image" />
+    <a>
+    <img src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/3f19dab5-2358-4fdd-a22d-74279a174a35" alt="Image" />
   </a>
-  <br />
-  이미지를 클릭하면 해당 딥다이브 페이지로 이동합니다.
+  <br>
+  <br>
+  <a>
+    <img src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/60d36f3f-218b-4c26-96e2-b890a2b4854d" alt="Image" width="382px" height="353px" />
+  </a>
+  <br>
 </div>
 <hr>
 
