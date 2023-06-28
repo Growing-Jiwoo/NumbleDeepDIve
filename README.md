@@ -14,7 +14,7 @@
 
 ### [사용 기술]
 
-React.js, TypeScript, HTML, CSS
+React.js, TypeScript, JSX, CSS
 
 ### [와이어프레임]
 <img width="2351" alt="와이어프레임" src="https://github.com/Growing-Jiwoo/NumbleDeepDIve/assets/115076308/d8d2014d-872f-44e4-af71-94fd7e4bb59c">
