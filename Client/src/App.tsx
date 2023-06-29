@@ -1,12 +1,12 @@
 import { Routes, Route, Outlet } from "react-router-dom";
-import Header from "./Components/Commons/Header";
-import Login from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
-import Main from "../pages/Main";
-import NavBar from "./Components/Commons/NavBar";
-import ExchangedLikeList from "../pages/ExchangedLikeList";
-import Myinfo from "../pages/Myinfo";
-import Chat from "./Components/Chat/Chat";
+import Header from "./component/Commons/Header";
+import Login from "./page/SignIn";
+import SignUp from "./page/SignUp";
+import Main from "./page/Main";
+import NavBar from "./component/Commons/NavBar";
+import ExchangedLikeList from "./page/ExchangedLikeList";
+import Myinfo from "./page/Myinfo";
+import Chat from "./component/Chat/Chat";
 
 function App(): JSX.Element {
   return (

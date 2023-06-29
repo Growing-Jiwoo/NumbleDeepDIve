@@ -1,5 +1,5 @@
-import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
-import type { UserListArray } from "../../Interface/interface";
+import useAxiosWithAuth from "../../hook/useAxiosWithAuth";
+import type { UserListArray } from "../../@types/interface";
 import UserProfileImg from "../Commons/UserProfileImg";
 import { Button, ButtonContainer, UserName } from "./styled";
 import { ProfileImg } from "../Commons/styled";

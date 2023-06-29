@@ -1,10 +1,10 @@
 import { LikeListContainer, LikeListDiv } from "./styled";
 import { ProfileImg } from "../Commons/styled";
-import { UserData } from "../../Interface/interface";
+import { UserData } from "../../@types/interface";
 import { useState } from "react";
 import UserProfileImg from "../Commons/UserProfileImg";
 import { useNavigate } from "react-router-dom";
-import { generateRandomString } from "../../Utils/generateRandomString";
+import { generateRandomString } from "../../util/generateRandomString";
 
 interface SendUserListProps {
   userList: UserData[];

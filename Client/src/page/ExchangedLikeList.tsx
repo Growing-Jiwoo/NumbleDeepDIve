@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useAxiosWithAuth from "../src/Hooks/useAxiosWithAuth";
+import useAxiosWithAuth from "../hook/useAxiosWithAuth";
 import {
   LikeTabMenu,
   ReceiveBtn,
   SendBtn,
   Container,
   LikeListContainer,
-} from "../src/Components/LikeList/styled";
-import SendUserList from "../src/Components/LikeList/SendUserList";
-import type { UserData } from "../src/Interface/interface";
-import ReceiveUserList from "../src/Components/LikeList/ReceiveUserList";
+} from "../component/LikeList/styled";
+import SendUserList from "../component/LikeList/SendUserList";
+import type { UserData } from "../@types/interface";
+import ReceiveUserList from "../component/LikeList/ReceiveUserList";
 
 function ExchangedLikeList(): JSX.Element {
   const location = useLocation();
