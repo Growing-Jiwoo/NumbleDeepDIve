@@ -1,56 +1,53 @@
 import { useEffect, useState } from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Container, Form, Input, Button } from "../component/Auth/styled";
+import { useCookies } from "react-cookie";
+import useAxiosWithAuth from "../hook/useAxiosWithAuth";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAxiosWithAuth from "../src/Hooks/useAxiosWithAuth";
-import { Container, Button } from "react-bootstrap";
-import { Input } from "../src/Components/Auth/styled";
 
-interface SingUp {
+interface Login {
   userId: string | number;
-  nickname: string | number;
   password: string | number;
 }
 
-function SignUp(): JSX.Element {
+function LoginUi(): JSX.Element {
   const axiosInstance = useAxiosWithAuth();
   const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(["jwt"]);
+  const [values, setValues] = useState<Login>({
+    userId: "",
+    password: "",
+  });
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
     setError,
-  } = useForm<SingUp>({
+  } = useForm<Login>({
     criteriaMode: "all",
     mode: "onChange",
-  });
-
-  const [values, setValues] = useState<SingUp>({
-    userId: "",
-    password: "",
-    nickname: "",
   });
 
   useEffect(() => {
     setValues({
       userId: watch("userId") ?? "",
-      nickname: watch("nickname") ?? "",
       password: watch("password") ?? "",
     });
   }, [watch]);
 
-  const onSubmit = async (values: SingUp) => {
+  const onSubmit = async (values: Login) => {
     try {
       console.log(values);
-      const response = await axiosInstance.post("auth/signup", values);
-      console.log(response);
-      alert("회원가입이 완료되었습니다.");
-      navigate("/");
+      const response = await axiosInstance.post("auth/signin/", values);
+      setCookie("jwt", response.data.accessToken);
+      navigate("/Main");
     } catch (error: any) {
+      console.log(error);
       if (error.response?.status === 400) {
         setError("userId", {
           type: "manual",
-          message: "중복되는 ID가 존재합니다.",
+          message: "가입하지 않았거나 아이디나 비밀번호가 잘못되었습니다.",
         });
       } else {
         throw new Error("회원가입 실패");
@@ -60,7 +57,7 @@ function SignUp(): JSX.Element {
 
   return (
     <Container>
-      <h1>회원가입</h1>
+      <h1>로그인</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="text"
@@ -93,32 +90,29 @@ function SignUp(): JSX.Element {
           })}
         />
         {errors.password && <span>{errors.password.message}</span>}
-        <Input
-          type="text"
-          placeholder="닉네임 (숫자와 문자 3~10자)"
-          value={watch("nickname") ?? ""}
-          {...register("nickname", {
-            required: "닉네임은 필수 입력 사항입니다.",
-            pattern: {
-              value: /^[a-z0-9가-힣]{3,10}$/i,
-              message: "닉네임은 숫자와 문자 3~10자리로 이루어져야 합니다.",
-            },
-          })}
-        />
-        {errors.nickname && <span>{errors.nickname.message}</span>}
-        <Button className="signup" type="submit">
-          회원가입 완료
-        </Button>
         <Button
-          onClick={() => {
-            navigate("/");
+          className="login"
+          disabled={!isValid}
+          style={{
+            backgroundColor: isValid ? "transparent" : "grey",
+            color: isValid ? "rgb(25, 118, 210)" : "white",
+            cursor: isValid ? "pointer" : "auto",
           }}
         >
-          로그인 화면으로 가기
+          로그인
+        </Button>
+
+        <Button
+          className="signup"
+          onClick={() => {
+            navigate("/SignUp");
+          }}
+        >
+          회원가입
         </Button>
       </Form>
     </Container>
   );
 }
 
-export default SignUp;
+export default LoginUi;

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import useAxiosWithAuth from "../src/Hooks/useAxiosWithAuth";
+import useAxiosWithAuth from "../hook/useAxiosWithAuth";
 import {
   ButtonCotainer,
   ButtonDiv,
@@ -9,10 +9,10 @@ import {
   MyInfoProfileImg,
   MyinfoEdit,
   NameText,
-} from "../src/Components/Myinfo/styled";
-import type { MyInfoValue, UserData } from "../src/Interface/interface";
-import UserProfileImg from "../src/Components/Commons/UserProfileImg";
-import EditPopup from "../src/Components/Myinfo/EditPopup";
+} from "../component/Myinfo/styled";
+import type { MyInfoValue, UserData } from "../@types/interface";
+import UserProfileImg from "../component/Commons/UserProfileImg";
+import EditPopup from "../component/Myinfo/EditPopup";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 

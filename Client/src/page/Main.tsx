@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import useAxiosWithAuth from "../src/Hooks/useAxiosWithAuth";
-import type { UserData } from "../src/Interface/interface";
+import useAxiosWithAuth from "../hook/useAxiosWithAuth";
+import type { UserData } from "../@types/interface";
 import {
   CenteredContainer,
   Container,
   MessageContainer,
   ProfileBox,
-} from "../src/Components/Main/styled";
-import UserProfile from "../src/Components/Main/UserProfile";
+} from "../component/Main/styled";
+import UserProfile from "../component/Main/UserProfile";
 
 function Main(): JSX.Element {
   const axiosInstance = useAxiosWithAuth();

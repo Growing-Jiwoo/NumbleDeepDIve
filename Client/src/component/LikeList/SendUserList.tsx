@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { LikeListContainer, LikeListDiv } from "./styled";
 import { ProfileImg } from "../Commons/styled";
-import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
+import useAxiosWithAuth from "../../hook/useAxiosWithAuth";
 import UserProfileImg from "../Commons/UserProfileImg";
-import type { UserData } from "../../Interface/interface";
+import type { UserData } from "../../@types/interface";
 
 interface SendUserListProps {
   userList: UserData[];

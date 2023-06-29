@@ -7,8 +7,8 @@ import {
   ModalStyles,
 } from "./styled";
 import S3ImgInput, { S3ImgInputRef } from "./S3ImgInput";
-import useAxiosWithAuth from "../../Hooks/useAxiosWithAuth";
-import type { MyInfoValue } from "../../Interface/interface";
+import useAxiosWithAuth from "../../hook/useAxiosWithAuth";
+import type { MyInfoValue } from "../../@types/interface";
 import { useForm } from "react-hook-form";
 
 interface EditPopupProps {
