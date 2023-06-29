@@ -62,10 +62,7 @@ export default function Myinfo() {
         <MyinfoEdit>
           <NameText>{values.nickname}</NameText>
           <EditBtn onClick={openEditModal}>
-            <img
-              src={`${process.env.PUBLIC_URL}/img/editicon.png`}
-              alt="editBtn"
-            />
+            <img src={require(`../assets/Img/editicon.png`)} alt="editBtn" />
           </EditBtn>
         </MyinfoEdit>
       </MyInfoProfile>

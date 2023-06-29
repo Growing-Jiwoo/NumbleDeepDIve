@@ -9,7 +9,7 @@ function NavBar(): JSX.Element {
       <ul>
         <li>
           <img
-            src={`${process.env.PUBLIC_URL}/img/likeicon.png`}
+            src={require(`../../assets/Img/likeicon.png`)}
             alt="likeBtn"
             onClick={() => {
               navigate("/like/list");
@@ -18,7 +18,7 @@ function NavBar(): JSX.Element {
         </li>
         <li>
           <img
-            src={`${process.env.PUBLIC_URL}/img/swipeicon.png`}
+            src={require(`../../assets/Img/swipeicon.png`)}
             alt="swipeBtn"
             onClick={() => {
               navigate("/main");
@@ -27,7 +27,7 @@ function NavBar(): JSX.Element {
         </li>
         <li>
           <img
-            src={`${process.env.PUBLIC_URL}/img/usericon.PNG`}
+            src={require(`../../assets/Img/usericon.PNG`)}
             alt="myinfoBtn"
             onClick={() => {
               navigate("/myinfo");

@@ -11,7 +11,7 @@ function HeaderUi(): JSX.Element {
   return (
     <Header>
       <HeaderImage
-        src={`${process.env.PUBLIC_URL}/img/backbtn.PNG`}
+        src={require(`../../assets/Img/backbtn.PNG`)}
         alt="Back Button"
         onClick={handleImageClick}
         hideOnMain={window.location.pathname === "/Main"}
