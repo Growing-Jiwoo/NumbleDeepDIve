@@ -7,33 +7,34 @@ import NavBar from "./component/Commons/NavBar";
 import ExchangedLikeList from "./page/ExchangedLikeList";
 import Myinfo from "./page/Myinfo";
 import Chat from "./component/Chat/Chat";
+import styled from "styled-components";
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  max-width: 720px;
+  padding: 60px 16px 16px;
+  overflow: hidden;
+`;
 
 function App(): JSX.Element {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100vh",
-        maxWidth: "720px",
-        padding: "60px 16px 16px",
-        overflow: "hidden",
-      }}
-    >
+    <Container>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route element={<CommonLayout />}>
+        <Route element={<Commons />}>
           <Route path="/main" element={<Main />} />
           <Route path="/like/list" element={<ExchangedLikeList />} />
           <Route path="/myinfo" element={<Myinfo />} />
           <Route path="/chat/:targetUserId" element={<Chat />} />
         </Route>
       </Routes>
-    </div>
+    </Container>
   );
 }
 
-const CommonLayout = () => {
+function Commons() {
   return (
     <>
       <Header />
@@ -41,6 +42,6 @@ const CommonLayout = () => {
       <NavBar />
     </>
   );
-};
+}
 
 export default App;
