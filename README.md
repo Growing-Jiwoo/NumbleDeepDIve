@@ -12,6 +12,12 @@
 </div>
 <hr>
 
+### [설치 및 실행]
+
+#### 설치 - `npm install`
+
+#### 실행 - `npm start`
+
 ### [사용 기술]
 
 React.js, TypeScript, JSX, CSS
@@ -42,17 +48,4 @@ React.js, TypeScript, JSX, CSS
 - 상수: UPPER_SNAKE_CASE
 
 ### [사용 라이브러리]
-`aws-sdk@2.1377.0`   
-`axios@1.4.0`   
-`react-async@10.0.1`   
-`react-cookie@4.1.1`   
-`react-dom@18.2.0`   
-`react-hook-form@7.43.9`   
-`react-modal@3.16.1`      
-`react-router-dom@6.11.1`   
-`socket.io-client@4.6.1`
-`styled-components@5.3.10`   
-`typescript@4.9.5`   
-`cors@2.8.5`   
-`express@4.18.2`   
-`socket.io@4.6.1`   
+`React` `Typescript` `react-hook-form` `react-modal` `react-router-dom` `socket.io-client` `styled-components` `express` `socket.io` 
