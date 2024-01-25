@@ -45,4 +45,4 @@ React.js, TypeScript, JSX, CSS
 - 상수: UPPER_SNAKE_CASE
 
 ### [사용 라이브러리]
-`React` `Typescript` `react-hook-form` `react-modal` `react-router-dom` `socket.io-client` `styled-components` `express` `socket.io` 
+`React` `Typescript` `react-hook-form` `react-modal` `socket.io-client` `styled-components` `express` `socket.io` 
