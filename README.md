@@ -46,3 +46,6 @@ React.js, TypeScript, JSX, CSS
 
 ### [사용 라이브러리]
 `React` `Typescript` `react-hook-form` `react-modal` `socket.io-client` `styled-components` `express` `socket.io` 
+
+### [회고록]
+- https://growing-jiwoo.tistory.com/97
